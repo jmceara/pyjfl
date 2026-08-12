@@ -13,7 +13,11 @@
 
 [project]
 name = "pyjfl"
-version = "0.1.0"
+# 0.1.1 adds the PEP 561 `py.typed` marker, which 0.1.0 shipped without. Without it mypy reports
+# `Skipping analyzing "pyjfl"` and none of this package's annotations reach anything that depends on
+# it — including the jfl_alarm integration, whose `strict-typing` quality-scale rule rests on them.
+# Runtime behaviour is identical. A published version can never be replaced, hence a patch release.
+version = "0.1.1"
 description = "Asynchronous client for JFL Active alarm panels — frame codec and TCP listener"
 readme = "README.md"
 # Deliberately wider than JFL_ALARM's own `>=3.14.2`. That floor is this project's choice, aligned
@@ -77,6 +81,10 @@ ignore = ["D203", "D213", "TRY003"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["ANN001", "ANN202", "D103", "D401"]
+# `scripts/` holds command-line programs, where printing is the point rather than a leftover debug
+# statement. `T20` bans `print` in the library itself, which is where the rule earns its place: a
+# library that prints has no way for its caller to turn that off.
+"scripts/*.py" = ["T20"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"
