@@ -1,0 +1,45 @@
+# Release pyjfl to PyPI via Trusted Publishing.
+#
+# ⚠️ This workflow belongs to the **pyjfl** repository (github.com/jmceara/pyjfl), not to JFL_ALARM.
+# It lives here only so that `scripts/publish.py lib` carries it into every snapshot: that script
+# pushes with `--force-with-lease`, so a file the snapshot does not contain is deleted from the
+# library repository on the next publish. It is listed in the `lib` target's `include`.
+#
+# Trusted Publishing means no API token exists to leak. PyPI authorises this exact repository,
+# workflow filename and environment; the `id-token: write` permission below is what mints the
+# short-lived credential in its place. Set the pending publisher up on PyPI *before* the first
+# release, following docs/development/publishing-pyjfl.md §4.
+#
+# Publishing is triggered by creating a GitHub **release**, not by pushing a tag. The version that
+# gets uploaded is the one in `pyproject.toml` — a release whose tag disagrees with it uploads the
+# pyproject's version regardless, and a version already on PyPI can never be replaced.
+
+name: Release to PyPI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write # this, and only this, is what replaces the API token
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Build the sdist and the wheel
+        # Home Assistant's development checklist requires a source distribution, not only a wheel.
+        run: |
+          python -m pip install --upgrade build twine
+          python -m build
+
+      - name: Check the metadata PyPI will render
+        run: python -m twine check dist/*
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
