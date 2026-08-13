@@ -40,6 +40,7 @@ from __future__ import annotations
 import asyncio
 import contextlib
 import logging
+import socket
 from collections import deque
 from collections.abc import Callable, Iterator
 from dataclasses import dataclass
@@ -643,6 +644,22 @@ class _PanelConnection:
                 return await future
         finally:
             self._pending.pop(seq, None)
+
+
+def check_port_available(host: str, port: int) -> None:
+    """Raise `OSError` if *host*:*port* is already bound by something else.
+
+    A blocking, synchronous probe — bind immediately, then release. Callers on an event loop must
+    run it in an executor, the same way `JflServer.async_start` itself never blocks the loop.
+
+    Exists so a caller can give a specific "this port is taken" error *before* attempting
+    `JflServer.async_start()`, which would otherwise raise the same `OSError` but only after the
+    caller has already committed to starting up — a config flow wants to know first, while the user
+    can still change their answer.
+    """
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
+        probe.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        probe.bind((host, port))
 
 
 class JflServer:

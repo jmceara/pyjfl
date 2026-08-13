@@ -17,7 +17,10 @@ name = "pyjfl"
 # `Skipping analyzing "pyjfl"` and none of this package's annotations reach anything that depends on
 # it — including the jfl_alarm integration, whose `strict-typing` quality-scale rule rests on them.
 # Runtime behaviour is identical. A published version can never be replaced, hence a patch release.
-version = "0.1.1"
+# 0.2.0 adds `check_port_available`, a new public function — config_flow.py in jfl_alarm previously
+# opened a raw `socket` itself to pre-check a listening port, which is exactly the kind of network
+# primitive ADR-0019 says belongs in this package, not the integration. Additive, no break, so minor.
+version = "0.2.0"
 description = "Asynchronous client for JFL Active alarm panels — frame codec and TCP listener"
 readme = "README.md"
 # Deliberately wider than JFL_ALARM's own `>=3.14.2`. That floor is this project's choice, aligned

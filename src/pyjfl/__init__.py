@@ -68,6 +68,7 @@ from .transport import (
     JflPanelLink,
     JflServer,
     RawFrame,
+    check_port_available,
 )
 
 __all__ = [
@@ -82,4 +83,5 @@ __all__ = [
     "JflPanelLink",
     "JflServer",
     "RawFrame",
+    "check_port_available",
 ]
