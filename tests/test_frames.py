@@ -1,9 +1,5 @@
 """Framing, checksums and stream resynchronisation.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Sprint 1 task 1.1. The acceptance criterion is the fuzz test at the bottom: every captured fixture,
 split at arbitrary boundaries with garbage injected, must never raise and must always recover sync.
 

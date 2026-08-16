@@ -1,9 +1,5 @@
 """Framing and checksums for the JFL `0x7B` protocol.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Source: `docs/protocol/frame-format.md`, itself taken from
 `docs/referencia/comando/Protocolo Comandos Active 100_32_20bus_20_8_20Eth.pdf` §2.
 

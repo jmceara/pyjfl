@@ -96,7 +96,7 @@ Author: Jonis Maurin Ceará. Based on the code developed by Carlos Jose Fernande
 
 ## Licence
 
-**GPL-3.0-only.** See [LICENSE](LICENSE).
+**Apache-2.0.** See [LICENSE](LICENSE).
 
 In short, and without being legal advice: you may use, study, share and modify this library freely,
 including commercially. If you distribute it, or anything derived from it, you must do so under the

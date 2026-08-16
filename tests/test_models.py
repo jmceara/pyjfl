@@ -1,9 +1,5 @@
 """Value objects, the model table and the bit positions they hide.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Sprint 1 task 1.2. Most of these assert a single bit position, which is the point: every one of them
 is a place the old integration or the specification gets it wrong, and none would be caught by a
 test written casually.

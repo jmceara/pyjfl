@@ -1,9 +1,5 @@
 """The Contact ID table.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Sprint 1 task 1.5. The table was recovered from a PDF whose columns `pdftotext` misaligns, so the
 tests that matter are the ones checking it against independent sources: the old integration's
 84-entry table, and the frames the panel actually sent on 2026-08-08.

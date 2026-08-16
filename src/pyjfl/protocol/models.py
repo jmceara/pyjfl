@@ -1,9 +1,5 @@
 """Types for the JFL `0x7B` protocol: enums, capability table, value objects and packets.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Every raw byte the panel sends becomes one of these before anything else looks at it, so that no
 part of the integration outside `protocol/` has to know a bit position. Sources are cited per
 symbol; the cached facts live in `docs/protocol/`.

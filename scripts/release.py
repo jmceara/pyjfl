@@ -30,7 +30,13 @@ REPO = Path(__file__).resolve().parent.parent
 DIST = REPO / "dist"
 
 GREEN, RED, YELLOW, CYAN, DIM, BOLD, RESET = (
-    "\033[32m", "\033[31m", "\033[33m", "\033[36m", "\033[2m", "\033[1m", "\033[0m",
+    "\033[32m",
+    "\033[31m",
+    "\033[33m",
+    "\033[36m",
+    "\033[2m",
+    "\033[1m",
+    "\033[0m",
 )
 
 
@@ -107,7 +113,7 @@ def check_py_typed(wheel: Path) -> None:
     if not any(name.endswith("pyjfl/py.typed") for name in names):
         raise ReleaseError(
             "the wheel has no `pyjfl/py.typed`. Create an empty `src/pyjfl/py.typed`; "
-            "hatchling picks it up via `packages = [\"src/pyjfl\"]`."
+            'hatchling picks it up via `packages = ["src/pyjfl"]`.'
         )
 
 

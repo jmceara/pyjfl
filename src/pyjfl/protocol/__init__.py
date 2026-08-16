@@ -1,9 +1,5 @@
 """Pure protocol implementation for JFL Active panels.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 This package is **pure**: standard library only, no `homeassistant` imports, no I/O and no sockets.
 It parses and builds frames and nothing else, so it can be imported, unit-tested and fuzzed on its
 own — and so `mypy --strict` can be enforced on it without dragging in Home Assistant's typing.

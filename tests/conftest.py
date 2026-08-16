@@ -1,9 +1,5 @@
 """Shared pytest fixtures for the pyjfl test suite.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 This is the library's own conftest, not the integration's. JFL_ALARM's version spends most of its
 length working around the fact that Home Assistant's test harness cannot be imported on Windows;
 here there is no Home Assistant to work around, which is the clearest single sign that the split

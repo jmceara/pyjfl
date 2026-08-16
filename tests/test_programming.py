@@ -1,9 +1,5 @@
 """Reading the panel's programming: the `0x44` command and the record parsers.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Sprint 6, tasks 6.1 and 6.2. **No JFL PDF documents any of this**, so every expectation below is
 anchored to a frame ActiveNet actually exchanged with the author's Active 32 Duo on 2026-08-08 —
 extracted from `docs/captures/2026-08-08-session-full.txt` into `tests/fixtures/prog-*.hex`.

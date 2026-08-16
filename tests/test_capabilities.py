@@ -1,9 +1,5 @@
 """Capability detection: the merge of the model table, the status frame and the programming.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Sprint 8, tasks 8.1 and 8.2. The author's requirement is that the integration **detect** what a
 panel has rather than assume an Active 32 Duo — a panel with one partition, no fence and no PGMs
 must resolve to exactly those. And the headline of 8.2: a programming read now names the PGM that

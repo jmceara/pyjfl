@@ -1,9 +1,5 @@
 """The panel's programming address space: where things are, and how to read them.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Source: `docs/protocol/programming.md`, recovered by capturing ActiveNet reading a real Active 32
 Duo (firmware 7.60) on 2026-08-08. **No JFL PDF documents any of this.**
 

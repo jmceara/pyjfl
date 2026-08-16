@@ -1,9 +1,5 @@
 """The panel's own backup image, as a whole-space regression fixture.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 ActiveNet's *Backup* command writes a **flat image of the entire programming address space** —
 addresses `0x0000` to `0x1DFF`, 7680 bytes, no header and no framing, despite the `.xml`
 extension its dialog suggests. `docs/captures/raw/panel-programming-backup-2026-08-09.bin` is

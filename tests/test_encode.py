@@ -1,9 +1,5 @@
 """Command builders, checked byte for byte against what ActiveNet actually sent.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Sprint 1 task 1.4. The acceptance criterion is that every builder for an operating command
 reproduces the corresponding captured frame exactly, sequence byte and checksum included. That is
 what turns these from interpretations of a PDF into transcriptions.

@@ -1,9 +1,5 @@
 """Build the frames this integration sends.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Source: `docs/protocol/commands.md`. **Every builder for an operating command is checked byte for
 byte against a frame ActiveNet actually sent to the user's panel on 2026-08-08**, so these are
 transcriptions rather than interpretations of the PDF.

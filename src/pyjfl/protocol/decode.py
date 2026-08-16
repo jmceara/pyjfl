@@ -1,9 +1,5 @@
 """Turn validated frames into typed packets.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Every offset here is **absolute**, indexed straight into the frame exactly as the JFL PDFs number
 their fields, via `Frame.byte()` and `Frame.slice()`. Doing arithmetic against the payload instead
 is how the old integration ended up reading partitions at 13 and `SELET` at 54.

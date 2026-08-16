@@ -1,9 +1,5 @@
 """The TCP listener JFL panels dial in to.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 **The topology is inverted.** Home Assistant does not connect to the panel; the panel connects to
 Home Assistant, at the destination IP and port its installer programmed into it. One listener
 therefore serves *many* panels at once, and everything that could be per-integration state — the

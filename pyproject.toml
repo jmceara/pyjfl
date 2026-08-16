@@ -1,45 +1,12 @@
-####################################################################################################
-# pyjfl — packaging for the library generated out of this repository.
-#
-# This file is NOT the build configuration of JFL_ALARM. It is copied to the root of the `lib`
-# publish snapshot (`scripts/publish.py lib`), next to the `src/pyjfl/` tree that the same run
-# generates from `custom_components/jfl_alarm/protocol/` and `server.py`. Editing it changes what
-# gets uploaded to PyPI; it has no effect on the integration.
-#
-# Why the library exists at all: `home-assistant/core` requires that every byte a device exchanges
-# be spoken by an independent package on PyPI, which the integration merely declares in
-# `manifest.json`'s `requirements`. See docs/adr/0019-pyjfl-owns-the-codec-and-the-transport.md.
-####################################################################################################
-
 [project]
 name = "pyjfl"
-# 0.1.1 adds the PEP 561 `py.typed` marker, which 0.1.0 shipped without. Without it mypy reports
-# `Skipping analyzing "pyjfl"` and none of this package's annotations reach anything that depends on
-# it — including the jfl_alarm integration, whose `strict-typing` quality-scale rule rests on them.
-# Runtime behaviour is identical. A published version can never be replaced, hence a patch release.
-# 0.2.0 adds `check_port_available`, a new public function — config_flow.py in jfl_alarm previously
-# opened a raw `socket` itself to pre-check a listening port, which is exactly the kind of network
-# primitive ADR-0019 says belongs in this package, not the integration. Additive, no break, so minor.
-version = "0.2.0"
+version = "0.3.0"
 description = "Asynchronous client for JFL Active alarm panels — frame codec and TCP listener"
 readme = "README.md"
-# Deliberately wider than JFL_ALARM's own `>=3.14.2`. That floor is this project's choice, aligned
-# to Home Assistant 2026.8; a library other people may depend on has no business inheriting it. The
-# code uses nothing newer than `datetime.UTC` and `asyncio.timeout`, both 3.11.
 requires-python = ">=3.13"
 authors = [{ name = "Jonis Maurin Ceará", email = "jmceara@gmail.com" }]
 keywords = ["jfl", "active", "alarm", "home-assistant", "asyncio"]
-# GPL-3.0-only, chosen deliberately over the ecosystem's more common MIT/Apache-2.0. The author's
-# requirement is that modifications be published and attribution survive; a permissive licence
-# guarantees neither. It is well-precedented among the libraries Home Assistant integrations depend
-# on — `zigpy` and `bellows` (the whole Zigbee stack), `python-kasa`, and Nabu Casa's own
-# `hass-nabucasa` are all GPL-3.0. A `NonCommercial` clause was considered and rejected: it is not an
-# open-source licence, and `home-assistant/core` (Apache-2.0) could never depend on one.
-#
-# PEP 639: `license` is an SPDX expression and `license-files` ships the text in the built
-# distributions. The `License ::` classifier is deliberately absent — PEP 639 forbids pairing it with
-# a `license` expression, and modern build backends reject the combination.
-license = "GPL-3.0-only"
+license = "Apache-2.0"
 license-files = ["LICENSE"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -49,12 +16,9 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Home Automation",
 ]
-# No runtime dependencies, on purpose. The whole package is standard library, which is what lets
-# `dependency-transparency` in the integration's quality scale stay `done`.
+# No runtime dependencies: the package is standard library only.
 dependencies = []
 
-# Test-only. `pyyaml` is here for one test: it checks the decoded Contact ID table against the copy
-# the original integration shipped, which is stored as YAML.
 [dependency-groups]
 dev = ["mypy", "pytest", "pytest-asyncio", "pyyaml", "ruff"]
 
@@ -69,9 +33,6 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/pyjfl"]
 
-# ---------------------------------------------------------------------------
-# The library inherits the integration's standards rather than relaxing them.
-# ---------------------------------------------------------------------------
 [tool.ruff]
 target-version = "py313"
 line-length = 100
@@ -84,9 +45,7 @@ ignore = ["D203", "D213", "TRY003"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["ANN001", "ANN202", "D103", "D401"]
-# `scripts/` holds command-line programs, where printing is the point rather than a leftover debug
-# statement. `T20` bans `print` in the library itself, which is where the rule earns its place: a
-# library that prints has no way for its caller to turn that off.
+# `scripts/` holds command-line programs, where printing is the point.
 "scripts/*.py" = ["T20"]
 
 [tool.ruff.lint.pydocstyle]

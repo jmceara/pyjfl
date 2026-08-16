@@ -1,9 +1,5 @@
 """What a panel can actually do, merged from the three sources that know.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 The author's standing requirement is that the integration **detect** what a panel has rather than
 assume an Active 32 Duo: not every panel has four partitions, thirty-two zones or an energiser, and
 one that has none of them must produce exactly the entities for what it has.

@@ -1,9 +1,5 @@
 """Decoding real captured frames into typed packets.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Sprint 1 task 1.3. Every assertion here is checked against a frame the panel actually sent on
 2026-08-08, cross-referenced with what the ActiveNet UI displayed at that moment. Where the two
 disagree with the specification, the panel wins.

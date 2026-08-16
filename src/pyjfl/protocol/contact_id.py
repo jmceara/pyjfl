@@ -1,9 +1,5 @@
 """The Contact ID event table.
 
-Author: Jonis Maurin Ceará <jmceara AT gmail.com>
-Based on the code developed by Carlos Jose Fernandes,
-available at https://github.com/fernac03/JFL_ACTIVE
-
 Source: `docs/protocol/contact-id.md`, recovered from §29 of
 `docs/referencia/MANUAL-ACTIVE-8-20-32-Grande.pdf` and cross-checked against the old integration's
 `contact_id.yaml` and the 2026-08-08 hardware capture.
